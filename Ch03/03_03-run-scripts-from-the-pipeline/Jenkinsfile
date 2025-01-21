@@ -14,6 +14,11 @@ pipeline {
         cron '@midnight'
     }
     stages {
+        stage('CD Subfolder') {
+            steps {
+               dir("${env.WORKSPACE}/Ch03/03_03-run-scripts-from-the-pipeline/)
+            }
+        }
         stage('Make executable') {
             steps {
                 sh('chmod +x ./scripts/fibonacci.sh')
